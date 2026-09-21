@@ -1,0 +1,669 @@
+
+/* ==============================
+   GLOBAL STYLES
+============================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(135deg, #f0f9ff, #ffffff, #e0f2fe);
+  min-height: 100vh;
+  color: #1e293b;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+input,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ==============================
+   NAVIGATION BAR
+============================== */
+
+nav {
+  background: linear-gradient(135deg, #0f172a, #1e40af);
+  padding: 18px 6%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  flex-wrap: wrap;
+  box-shadow: 0 5px 20px rgba(15, 23, 42, 0.2);
+}
+
+nav a {
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #67e8f9;
+}
+
+/* ==============================
+   MAIN CONTAINER
+============================== */
+
+main {
+  width: 92%;
+  max-width: 1500px;
+  margin: 35px auto;
+}
+
+h1 {
+  font-size: 32px;
+  margin-bottom: 25px;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+/* ==============================
+   ADD DESTINATION BUTTON
+============================== */
+
+.add-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  padding: 12px 22px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  background: linear-gradient(135deg, #2563eb, #0891b2);
+  transition: all 0.3s ease;
+}
+
+.add-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* ==============================
+   DESTINATIONS GRID
+============================== */
+
+.destinations,
+.destinations-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  align-items: stretch;
+  width: 100%;
+}
+
+/* ==============================
+   DESTINATION CARD
+============================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.08);
+  transition: transform 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(30, 64, 175, 0.16);
+}
+
+/* CARD IMAGE */
+
+.card > img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  flex-shrink: 0;
+  transition: transform 0.4s ease;
+}
+
+.card:hover > img {
+  transform: scale(1.03);
+}
+
+/* CARD CONTENT */
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 18px;
+}
+
+.card h2,
+.card h3 {
+  padding: 0;
+  margin: 0 0 10px;
+  color: #0f172a;
+  font-size: 24px;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.card p {
+  padding: 0;
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 16px;
+}
+
+/* ==============================
+   CARD ACTION BUTTONS
+============================== */
+
+.card-actions,
+.card-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: stretch;
+  margin-top: auto;
+  padding-top: 12px;
+}
+
+/* VIEW, EDIT AND DELETE */
+
+.view-btn,
+.edit-btn,
+.delete-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 46px;
+  padding: 10px 12px;
+  border: none;
+  border-radius: 9px;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+/* VIEW */
+
+.view-btn {
+  background: #2563eb;
+}
+
+.view-btn:hover {
+  background: #1d4ed8;
+}
+
+/* EDIT */
+
+.edit-btn {
+  background: #16a34a;
+}
+
+.edit-btn:hover {
+  background: #15803d;
+}
+
+/* DELETE */
+
+.delete-btn {
+  background: #dc2626;
+}
+
+.delete-btn:hover {
+  background: #b91c1c;
+}
+
+/* BUTTON FOCUS */
+
+.view-btn:focus-visible,
+.edit-btn:focus-visible,
+.delete-btn:focus-visible,
+.favorite-btn:focus-visible,
+.add-btn:focus-visible {
+  outline: 3px solid #93c5fd;
+  outline-offset: 3px;
+}
+
+/* ==============================
+   FAVORITES BUTTON
+============================== */
+
+.favorite-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 50px;
+  margin-top: 10px;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: #ff5b2e;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.favorite-btn:hover {
+  background: #e94b20;
+}
+
+.favorite-btn:disabled {
+  background: #94a3b8;
+  cursor: not-allowed;
+}
+
+/* ==============================
+   DESTINATION DETAILS
+============================== */
+
+.details {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.details img {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 15px;
+  margin-bottom: 25px;
+}
+
+.details h1 {
+  color: #0f172a;
+  margin-bottom: 15px;
+  font-size: 34px;
+}
+
+.details h3 {
+  margin: 25px 0 8px;
+  color: #2563eb;
+  font-size: 21px;
+}
+
+.details p {
+  margin-top: 8px;
+  line-height: 1.8;
+  color: #475569;
+  font-size: 16px;
+}
+
+.details ul {
+  margin-top: 12px;
+  padding-left: 25px;
+}
+
+.details li {
+  margin-bottom: 10px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* ==============================
+   ADD / EDIT FORM
+============================== */
+
+.form-container {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0f172a;
+  font-size: 28px;
+}
+
+.form-container input,
+.form-container textarea {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease,
+              box-shadow 0.3s ease;
+}
+
+.form-container textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-container input:focus,
+.form-container textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 10px rgba(37, 99, 235, 0.15);
+}
+
+/* SUBMIT BUTTON */
+
+.submit-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #0891b2);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* ==============================
+   AUTH PAGES
+============================== */
+
+.auth-container {
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 25px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+.auth-card h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #0f172a;
+}
+
+.auth-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 18px;
+  border: 2px solid #e2e8f0;
+  border-radius: 10px;
+  font-size: 16px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.auth-card input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.15);
+}
+
+.auth-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.auth-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+}
+
+.auth-card p {
+  text-align: center;
+  margin-top: 15px;
+  color: #64748b;
+}
+
+.auth-card p a {
+  color: #2563eb;
+  font-weight: bold;
+}
+
+/* ==============================
+   FAVORITES PAGE
+============================== */
+
+.favorites-container {
+  width: 92%;
+  max-width: 1500px;
+  margin: 35px auto;
+  min-height: 80vh;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #0f172a;
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 25px;
+  align-items: stretch;
+}
+
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.favorite-card:hover {
+  transform: translateY(-5px);
+}
+
+.favorite-card img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.favorite-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px;
+}
+
+.favorite-content h2 {
+  margin-bottom: 10px;
+  color: #0f172a;
+}
+
+.favorite-content p {
+  margin: 8px 0;
+  color: #64748b;
+}
+
+.favorite-content button {
+  width: 100%;
+  min-height: 45px;
+  padding: 12px;
+  margin-top: auto;
+  border: none;
+  background: #dc2626;
+  color: white;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+
+.favorite-content button:hover {
+  background: #b91c1c;
+}
+
+.empty-favorites {
+  text-align: center;
+  margin: 80px auto;
+  padding: 30px;
+  color: #64748b;
+}
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
+
+@media (max-width: 1200px) {
+  .destinations,
+  .destinations-grid,
+  .favorites-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .destinations,
+  .destinations-grid,
+  .favorites-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .card > img,
+  .favorite-card img {
+    height: 220px;
+  }
+
+  .details img {
+    height: 300px;
+  }
+
+  .details h1 {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 18px 5%;
+    gap: 15px;
+    justify-content: center;
+  }
+
+  main,
+  .favorites-container {
+    width: 92%;
+    margin: 25px auto;
+  }
+
+  h1 {
+    font-size: 26px;
+  }
+
+  .destinations,
+  .destinations-grid,
+  .favorites-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .card > img,
+  .favorite-card img {
+    height: 230px;
+  }
+
+  .card-content {
+    padding: 16px;
+  }
+
+  .card-buttons {
+    gap: 8px;
+  }
+
+  .view-btn,
+  .edit-btn,
+  .delete-btn {
+    padding: 10px 8px;
+    font-size: 14px;
+  }
+
+  .details {
+    padding: 20px;
+  }
+
+  .details img {
+    height: 230px;
+  }
+
+  .details h1 {
+    font-size: 25px;
+  }
+
+  .form-container {
+    padding: 22px;
+  }
+
+  .auth-card {
+    padding: 25px;
+  }
+
+  .favorites-container {
+    padding: 10px 0;
+  }
+}
+
+@media (max-width: 380px) {
+  .card-buttons {
+    flex-direction: column;
+  }
+
+  .view-btn,
+  .edit-btn,
+  .delete-btn {
+    width: 100%;
+  }
+}
